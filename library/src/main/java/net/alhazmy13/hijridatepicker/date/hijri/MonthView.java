@@ -376,9 +376,13 @@ public abstract class MonthView extends View {
         mHasToday = false;
         mToday = -1;
 
-        mCalendar.set(UmmalquraCalendar.MONTH, mMonth);
-        mCalendar.set(UmmalquraCalendar.YEAR, mYear);
-        mCalendar.set(UmmalquraCalendar.DAY_OF_MONTH, 1);
+        try {
+            mCalendar.set(UmmalquraCalendar.MONTH, mMonth);
+            mCalendar.set(UmmalquraCalendar.YEAR, mYear);
+            mCalendar.set(UmmalquraCalendar.DAY_OF_MONTH, 1);
+        } catch (Exception e) {
+        }
+        
         mDayOfWeekStart = mCalendar.get(UmmalquraCalendar.DAY_OF_WEEK);
 
         if (params.containsKey(VIEW_PARAMS_WEEK_START)) {
